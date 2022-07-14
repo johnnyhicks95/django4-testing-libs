@@ -3,7 +3,9 @@
 
 from django.http import HttpResponse
 from django.template import Template, Context
+from django.template import loader
 import datetime
+from django.shortcuts import render
 
 class Persona(object):
      def __init__(self, name, last_name ):
@@ -18,21 +20,30 @@ def greetings(request):
     courses_list= ["Plantillas", "Modelos", "Formularios" ] 
     
     #Open external file in a variable
-    greeting_html = open(r"C:\Users\johnny\Desktop\Proyectos-Software\django-2022\django4-testing-libs\primera_pagina\primera_pagina\templates\greetings.html")
+    # greeting_html = open(r"C:\Users\johnny\Desktop\Proyectos-Software\django-2022\django4-testing-libs\primera_pagina\primera_pagina\templates\greetings.html")
     #Create the variable template
-    temp = Template( greeting_html.read() )
+    # temp = Template( greeting_html.read() )
     # Close the stream file
-    greeting_html.close()
+    # greeting_html.close()
     # Create the variable context, (may or not have dynamic content)
     # context can use dicts and objects
-    ctx = Context( {
+    
+    # We use settings.py---TEMPLATES-'DIRS'= ['C:/Users/MyProject../templates']
+    template_dirs = loader.get_template('greetings.html')
+    
+    # ctx = Context( {
+    #     "person_name": name, "last_name": last_name,
+    #     "prof_name": professor.name, "prof_last_name": professor.last_name,
+    #     "themes_list": courses_list,
+    # } )
+    
+    # -----------    Render the view  --------
+    # document = template_dirs.render(ctx)
+    document = template_dirs.render({
         "person_name": name, "last_name": last_name,
         "prof_name": professor.name, "prof_last_name": professor.last_name,
         "themes_list": courses_list,
     } )
-    
-    # Render the view
-    document = temp.render(ctx)
         
     return HttpResponse(document)
 

@@ -54,7 +54,7 @@ ROOT_URLCONF = 'primera_pagina.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:\Users\johnny\Desktop\Proyectos-Software\django-2022\django4-testing-libs\primera_pagina\primera_pagina\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
