@@ -20,8 +20,9 @@ from primera_pagina.views import greetings, getCurrentDate, calculateAge
 urlpatterns = [
     path('admin/', admin.site.urls),
     path( 'saludo', greetings ),
-    path( 'fecha/', getCurrentDate ),
+    
+    # path( 'fecha/', getCurrentDate ),
     #path adding one parameter at URL
-    path( 'edades/<int:year>', calculateAge ),
+    # path( 'edades/<int:year>', calculateAge ),
     
 ]

@@ -1,25 +1,47 @@
 #Views makes use of django,http
-# Needs as first argument HttResponse, Htt
+# Needs as first argument HttResponse,
 
 from django.http import HttpResponse
+from django.template import Template, Context
 import datetime
 
+class Persona(object):
+     def __init__(self, name, last_name ):
+         self.name = name
+         self.last_name = last_name
+
 def greetings(request):
-    hi="""
-    <html>
-        <body>
-        <h1>
-        Hola hackers
-        </h1>
-        </body>
-    </html>
+    professor = Persona( "Sarah", "Fortuna" )
     
-    """
-    return HttpResponse(hi)
+    name = "Juan"
+    last_name = "Hicks"
+    courses_list= ["Plantillas", "Modelos", "Formularios" ] 
+    
+    #Open external file in a variable
+    greeting_html = open(r"C:\Users\johnny\Desktop\Proyectos-Software\django-2022\django4-testing-libs\primera_pagina\primera_pagina\templates\greetings.html")
+    #Create the variable template
+    temp = Template( greeting_html.read() )
+    # Close the stream file
+    greeting_html.close()
+    # Create the variable context, (may or not have dynamic content)
+    # context can use dicts and objects
+    ctx = Context( {
+        "person_name": name, "last_name": last_name,
+        "prof_name": professor.name, "prof_last_name": professor.last_name,
+        "themes_list": courses_list,
+    } )
+    
+    # Render the view
+    document = temp.render(ctx)
+        
+    return HttpResponse(document)
+
 
 def getCurrentDate( request ):
     #Getting current date
     now_date= datetime.datetime.now()
+    now_day_date= datetime.datetime.now().day
+    now_month_date= datetime.datetime.now().month
     
     html = """
     <html>

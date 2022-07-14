@@ -1,0 +1,34 @@
+<html>
+    <body>
+    <h1>
+        Hola hackers desde plantilla!
+    </h1>
+    {# Simple ejemplo de condicional que muestra un html }
+    {% if prof_name == 'Profesora Souphyx' %}
+    <p>El curso lo imparte el profesor titular<b>**</b></p>
+    {% else %}
+    <p>El curso lo imparte el profesor suplete</p>
+    {% endif %}
+
+    <p>Mi nombre es: {{person_name}} - {{last_name}}</p>
+    <p>Nombre del profesor es: {{prof_name}} - {{prof_last_name}}</p>
+    <p>D&iacute;a y hora:</p>
+    <p>-----------</p>
+    <h3>Temas del curso:</h3>
+    <p> 
+        {% comment %}
+            Con un ciclo for, pasamos cada elemento de una lista
+            y lo mostramos en una etiqueta html-p
+        {% endcomment %}
+        <ul>
+            {% if themes_list %}
+                {% for element_theme in themes_list %}
+                    <li>{{element_theme}}</li>
+                {% endfor %}
+            {% else %}
+                <p>No hay elementos que mostrar</p>
+            {% endif %}
+        </ul>
+    </p>
+    </body>
+</html>
