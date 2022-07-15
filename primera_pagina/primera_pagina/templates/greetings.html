@@ -1,13 +1,15 @@
 <html>
     <body>
+    {% include "NavBar/bar.html" %}
+    
     <h1>
-        Hola hackers desde plantilla!
+        Hola hackers, bienvenidos al curso!
     </h1>
-    {# Simple ejemplo de condicional que muestra un html }
+    {# Simple ejemplo de condicional que muestra un html #}
     {% if prof_name == 'Profesora Souphyx' %}
     <p>El curso lo imparte el profesor titular<b>**</b></p>
     {% else %}
-    <p>El curso lo imparte el profesor suplete</p>
+    <p>El curso lo imparte el profesor suplente</p>
     {% endif %}
 
     <p>Mi nombre es: {{person_name}} - {{last_name}}</p>
@@ -16,7 +18,7 @@
     <p>-----------</p>
     <h3>Temas del curso:</h3>
     <p> 
-        {% comment %}
+        {% comment %} 
             Con un ciclo for, pasamos cada elemento de una lista
             y lo mostramos en una etiqueta html-p
         {% endcomment %}
