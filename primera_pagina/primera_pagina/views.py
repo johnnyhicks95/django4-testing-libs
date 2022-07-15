@@ -44,6 +44,13 @@ def greetings(request):
          "themes_list": courses_list,
     } )
 
+def courseC( request ):
+    now_date= datetime.datetime.now()
+    return render( request, "courses/CourseC.html", { "getNowDate": now_date } )
+    
+def courseCss( request ):
+    # now_date= datetime.datetime.now()
+    return render( request, "courses/CourseCss.html", { } )
 
 def getCurrentDate( request ):
     #Getting current date

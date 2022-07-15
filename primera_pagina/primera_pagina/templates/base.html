@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <h1 style="background-color:cornflowerblue; color: white; text-align: center;" >Herencia de plantillas</h1>
+    {% include "./NavBar/bar.html" %}
+    <p>Body--part</p>
+    {% block content %} 
+     {% endblock %}
+
+    <p style="background-color:rgb(135, 202, 34); color: white; text-align: left;"
+    >Footer--part</p>
+    <p>Django v4.01 - 2022</p>
+    
+</body>
+</html>

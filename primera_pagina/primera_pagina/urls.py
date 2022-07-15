@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from primera_pagina.views import greetings, getCurrentDate, calculateAge
+from primera_pagina.views import greetings, getCurrentDate, calculateAge, courseC, courseCss
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path( 'saludo', greetings ),
+    path( 'cursoc/', courseC ),
+    path( 'cursocss/', courseCss ),
     
     # path( 'fecha/', getCurrentDate ),
     #path adding one parameter at URL
