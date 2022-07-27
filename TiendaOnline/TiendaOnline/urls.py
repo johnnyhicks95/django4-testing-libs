@@ -23,4 +23,5 @@ urlpatterns = [
     path('busqueda_productos/', views.search_products ),
     #the answer to search product req
     path('buscar/', views.search ), 
+    path('contacto/', views.contact ), 
 ]
