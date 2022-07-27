@@ -77,7 +77,12 @@ WSGI_APPLICATION = 'TiendaOnline.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME' : 'ItemsClients', 
+        'USER': 'admin',
+        'PASSWORD': 'AdamJones2012',
+        'HOST': '127.0.0.1',
+        'DATABASE_PORT': '5400',
     }
 }
 
